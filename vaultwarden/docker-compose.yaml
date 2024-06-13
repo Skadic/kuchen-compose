@@ -1,0 +1,15 @@
+services:
+  vaultwarden:
+    container_name: vaultwarden
+    image: vaultwarden/server:latest
+    volumes:
+      - vw-data:/data
+    networks:
+      - web
+volumes:
+  vw-data:
+    external: true
+networks:
+  web:
+    external: true
+
