@@ -1,0 +1,24 @@
+services:
+  caddy:
+    container_name: caddy
+    restart: unless-stopped
+    build: .
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 443:443
+      - 443:443/udp
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - web
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:
+networks:
+  web:
+    driver: bridge
+    name: web
