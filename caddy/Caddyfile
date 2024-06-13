@@ -1,0 +1,28 @@
+{
+	email me@skadic.moe
+
+	acme_dns porkbun {
+		api_key ${PORKBUN_API_KEY}
+		api_secret_key ${PORKBUN_API_SECRET_KEY}
+	}
+}
+
+kuchen.skadic.moe {
+	respond "Hello World!"
+}
+
+vault.skadic.moe {
+	reverse_proxy vaultwarden:80
+}
+
+paperless.skadic.moe {
+	reverse_proxy paperless-server:8000
+}
+
+portainer.skadic.moe {
+	reverse_proxy portainer:9000
+}
+
+home.skadic.moe {
+	reverse_proxy homepage:3000
+}
